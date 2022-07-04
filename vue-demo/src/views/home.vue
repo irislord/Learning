@@ -1,17 +1,20 @@
 <template>
   <div>
-    <h1>401</h1>
+    <itemcontainer father-component="home"></itemcontainer>
   </div>
 </template>
 
 <script>
+import itemcontainer from "../components/itemcontainer";
 export default {
-  name: "VueError",
+  name: "HomeView",
 
   data() {
     return {};
   },
-
+  components: {
+    itemcontainer,
+  },
   mounted() {},
 
   methods: {},

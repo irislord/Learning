@@ -1,21 +1,33 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import LoginView from "../views/LoginView.vue";
-import error from "../views/error.vue";
+import App from "../App";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/login",
-    name: "login",
-    component: LoginView,
+    path: "/",
+    name: "",
+    component: App,
+    children: [
+      {
+        path: "",
+        name: "home",
+        component: () => import("../views/home.vue"),
+      },
+      {
+        path: "item",
+        name: "item",
+        component: () => import("../views/item.vue"),
+      },
+      {
+        path: "score",
+        name: "score",
+        component: () => import("../views/score.vue"),
+      },
+    ],
   },
-  {
-    path: "/401",
-    name: "error",
-    component: error,
-  },
+  //使用ES6的import（）方式实现路由懒加载
   // {
   //   path: "/about",
   //   name: "about",

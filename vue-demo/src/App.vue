@@ -8,20 +8,28 @@
 export default {
   name: "app",
   components: {},
-  created() {
-    this.$router.push({ name: "login" });
+  watch: {
+    $route(newVal) {
+      const body = document.body;
+      if (newVal.path === "/score") {
+        body.style.backgroundImage = `url(${require("./assets/img/4-1.jpg")})`;
+      } else {
+        body.style.backgroundImage = `url(${require("./assets/img/1-1.jpg")})`;
+      }
+    },
   },
+  created() {},
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   width: 100%;
   height: calc(100vh);
+  font-size: 10px;
+}
+body {
+  background-image: url("./assets/img/1-1.jpg");
+  background-size: 100% 100%;
 }
 </style>
