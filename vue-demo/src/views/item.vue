@@ -20,12 +20,39 @@ export default {
     itemcontainer,
   },
   mounted() {
-    this.initItemList();
+    this.initList();Item
   },
 
   methods: {
     ...mapMutations(["getItemList"]),
     initItemList() {
+      this.$ajax.get("./list.json").then(
+        (response) => {
+          this.getItemList(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },initItemList1() {
+      this.$ajax.get("./list.json").then(
+        (response) => {
+          this.getItemList(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },initItemList2() {
+      this.$ajax.get("./list.json").then(
+        (response) => {
+          this.getItemList(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },initItemList3() {
       this.$ajax.get("./list.json").then(
         (response) => {
           this.getItemList(response.data);
